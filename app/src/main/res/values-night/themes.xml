@@ -14,5 +14,7 @@
             <!-- Status bar -->
             <item name="android:statusBarColor">@color/darkPrimary</item>
             <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+            <item name="android:windowBackground">@android:color/white</item>
         </style>
 </resources>
