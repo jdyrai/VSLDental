@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundColor"
     tools:context=".LoginPhoneFragment">
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Login with phone number"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Enter your phone number to receive a \nverification code."
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -31,10 +31,10 @@
         android:id="@+id/layoutPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="@drawable/input_layout"
-        android:paddingVertical="15dp"
-        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/layoutEmailTopGuideline">
@@ -43,24 +43,42 @@
             android:id="@+id/labelPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+63"
-            android:textSize="11sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/inter_24pt_semibold"/>
+            android:text="Phone Number"
+            android:textSize="12sp"
+            android:textColor="@color/mainColor"
+            android:fontFamily="@font/inter_24pt_semibold"
+            android:translationY="15dp"
+            android:alpha="0" />
 
-        <EditText
-            android:id="@+id/inputPhone"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="5dp"
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:inputType="number" />
+            android:orientation="horizontal"
+            android:translationY="-9dp">
 
+            <TextView
+                android:id="@+id/prefixPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+63"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_24pt_semibold" />
+
+            <EditText
+                android:id="@+id/inputPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@android:color/transparent"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:inputType="number" />
+        </LinearLayout>
     </LinearLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSendCode"
@@ -71,11 +89,17 @@
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0"
-        android:backgroundTint="@color/mainColor"
+        android:letterSpacing="0.01"
+        android:background="@drawable/gradient_background"
+        android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
         android:stateListAnimator="@null"
+        app:backgroundTint="@null"
         app:cornerRadius="4dp"
         app:elevation="0dp"
         app:strokeWidth="0dp"
@@ -92,13 +116,17 @@
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_medium"
         android:textAllCaps="false"
-        android:letterSpacing="0"
-        android:background="@null"
-        app:backgroundTint="@android:color/transparent"
+        android:letterSpacing="0.01"
+        android:background="@drawable/gradient_border"
+        app:backgroundTint="@null"
         app:rippleColor="@color/mainColor"
         android:stateListAnimator="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
         app:cornerRadius="4dp"
         app:elevation="0dp"
         app:strokeWidth="1dp"
@@ -112,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_text"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_medium"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
@@ -152,7 +180,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.170" />
+        app:layout_constraintGuide_percent="0.173" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutEmailTopGuideline"
@@ -173,7 +201,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.826" />
+        app:layout_constraintGuide_percent="0.820" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/signUpTopGuideline"

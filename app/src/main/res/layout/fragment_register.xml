@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundColor"
     tools:context=".RegisterFragment">
 
     <LinearLayout
@@ -13,15 +13,14 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/topGuideline">
+        app:layout_constraintTop_toBottomOf="@id/progressTopGuideline">
 
         <LinearLayout
             android:id="@+id/step1"
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
-            android:backgroundTint="@color/mainColor"
+            android:background="@drawable/gradient_background"
             android:layout_marginRight="3dp"/>
 
         <LinearLayout
@@ -49,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Create your account"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -59,7 +58,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Sign up to book and manage your dental \nappointments."
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -183,7 +182,6 @@
             android:inputType="textPassword"/>
     </LinearLayout>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnContinue"
         android:layout_width="0dp"
@@ -193,11 +191,17 @@
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0"
+        android:letterSpacing="0.01"
+        android:background="@drawable/gradient_background"
         android:backgroundTint="@color/mainColor"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
         android:stateListAnimator="@null"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        app:backgroundTint="@null"
         app:cornerRadius="4dp"
         app:elevation="0dp"
         app:strokeWidth="0dp"
@@ -224,7 +228,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.056" />
+        app:layout_constraintGuide_percent="0.075" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuideline"
@@ -245,7 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.170" />
+        app:layout_constraintGuide_percent="0.173" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutFullNameTopGuideline"
@@ -259,14 +263,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.34" />
+        app:layout_constraintGuide_percent="0.332" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutPassTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.404" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btnTopGuideline"

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:radius="8dp"
+    android:elevation="0dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/input_layout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="15dp"
+            android:gravity="center"
+            android:background="@drawable/gradient_background">
+
+            <TextView
+                android:id="@+id/appointment_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="21"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_24pt_semibold" />
+
+            <TextView
+                android:id="@+id/appointment_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Jan"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_24pt_semibold" />
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consultation"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="-0.01"/>
+
+            <TextView
+                android:id="@+id/appointment_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="09:30 AM - 10:00 AM"
+                android:textSize="12sp"
+                android:textColor="@color/hintColor"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:letterSpacing="-0.01"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/status_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="end"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+
+
