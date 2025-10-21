@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">VSLDental</string>
+    <string name="signup_text">Don\'t have an account? <font color='#FFEE9356'>Sign up</font></string>
+    <string name="reminder_text">
+        We’ll use this to send appointment reminders.
+        You can <b>update it later in your profile</b>.
+    </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -5,56 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".WelcomeFragment">
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="app logo"
-        android:src="@drawable/img_welcome"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toTopOf="@id/topGuideline" />
+    tools:context=".LoginPhoneFragment">
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autoSizeMaxTextSize="40sp"
-        android:autoSizeMinTextSize="20sp"
-        android:text="Let's \nget started"
-        android:textSize="36sp"
+        android:text="Login with phone number"
+        android:textSize="18sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_semibold"
-        android:letterSpacing="-0.0005"
-        app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/str1TopGuideline"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autoSizeMaxTextSize="20sp"
-        android:autoSizeMinTextSize="10sp"
-        android:text="Easily book appointments and track your\noral health with our smart dental app"
-        android:textSize="16sp"
-        android:textColor="@color/black"
+        android:text="Enter your phone number to receive a \nverification code."
+        android:textSize="14sp"
+        android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
-        android:letterSpacing="-0.0005"
-        app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/goToLogin"
+    <LinearLayout
+        android:id="@+id/layoutPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:orientation="horizontal"
+        android:background="@drawable/input_layout"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/layoutEmailTopGuideline">
+
+        <TextView
+            android:id="@+id/labelPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+63"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_semibold"/>
+
+        <EditText
+            android:id="@+id/inputPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSendCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Send Code"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
+        android:letterSpacing="0"
         android:backgroundTint="@color/mainColor"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -62,19 +79,20 @@
         app:cornerRadius="4dp"
         app:elevation="0dp"
         app:strokeWidth="0dp"
-        app:layout_constraintEnd_toEndOf="@id/btnEndGuideline"
-        app:layout_constraintStart_toStartOf="@id/btnStartGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/btnTopGuideline"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/goToRegister"
+        android:id="@+id/btnGoToEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Create your Account"
+        android:text="Continue with Email"
         android:textSize="14sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_medium"
         android:textAllCaps="false"
+        android:letterSpacing="0"
         android:background="@null"
         app:backgroundTint="@android:color/transparent"
         app:rippleColor="@color/mainColor"
@@ -85,9 +103,21 @@
         app:elevation="0dp"
         app:strokeWidth="1dp"
         app:strokeColor="@color/mainColor"
-        app:layout_constraintEnd_toEndOf="@id/btnEndGuideline"
-        app:layout_constraintStart_toStartOf="@id/btnStartGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/btn2TopGuideline"/>
+
+    <TextView
+        android:id="@+id/tvpPhoneSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_text"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_24pt_medium"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/signUpTopGuideline"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideline"
@@ -108,47 +138,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.049" />
+        app:layout_constraintGuide_percent="0.070" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str1TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.50" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.626" />
+        app:layout_constraintGuide_percent="0.170" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/layoutEmailTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btnTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btn2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.846" />
+        app:layout_constraintGuide_percent="0.826" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/btnStartGuideline"
+        android:id="@+id/signUpTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.0833" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/btnEndGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9167" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,16 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/ic_visibility_off.xml" value="0.1" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/ic_visibility_on.xml" value="0.1" />
         <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/input_layout.xml" value="0.1" />
         <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/launch_screen.xml" value="0.1" />
         <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/layer_list.xml" value="0.1" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/drawable/progress_shape.xml" value="0.11" />
         <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/activity_main.xml" value="0.24214417744916822" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_create_password.xml" value="0.1717948717948718" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_forgot_email.xml" value="0.2" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_forgot_phone.xml" value="0.25" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_forgot_verify.xml" value="0.25" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_login_phone.xml" value="0.25" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_register.xml" value="0.2" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_register_optional.xml" value="0.25" />
         <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_splash.xml" value="0.22" />
-        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_welcome.xml" value="0.75" />
+        <entry key="..\:/Users/Jade Raissane/AndroidStudioProjects/VSLDental/app/src/main/res/layout/fragment_welcome.xml" value="0.37077131258457374" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

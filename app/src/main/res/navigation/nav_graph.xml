@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/splashFragment"
         android:name="com.example.vsldental.SplashFragment"
         android:label="Home"
         tools:layout="@layout/fragment_splash">
@@ -22,5 +22,168 @@
         android:id="@+id/welcomeFragment"
         android:name="com.example.vsldental.WelcomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/LoginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_welcomeFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.example.vsldental.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_go_back_to_welcome"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_go_to_phone"
+            app:destination="@id/LoginPhoneFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_go_to_forgot"
+            app:destination="@id/ForgotEmailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_go_to_register"
+            app:destination="@id/RegisterFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginPhoneFragment"
+        android:name="com.example.vsldental.LoginPhoneFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login_phone">
+        <action
+            android:id="@+id/action_go_to_email"
+            app:destination="@id/LoginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_go_to_register"
+            app:destination="@id/RegisterFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="com.example.vsldental.RegisterFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_go_back_to_welcome"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_continue"
+            app:destination="@id/RegisterOptionalFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/RegisterOptionalFragment"
+        android:name="com.example.vsldental.RegisterOptionalFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_register_optional">
+    </fragment>
+
+    <fragment
+        android:id="@+id/ForgotEmailFragment"
+        android:name="com.example.vsldental.ForgotEmailFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_forgot_email">
+        <action
+            android:id="@+id/action_go_to_forgot_phone"
+            app:destination="@id/ForgotPhoneFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_continue"
+            app:destination="@id/ForgotVerifyFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ForgotPhoneFragment"
+        android:name="com.example.vsldental.ForgotPhoneFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_forgot_phone">
+        <action
+            android:id="@+id/action_go_to_forgot_email"
+            app:destination="@id/ForgotEmailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_continue"
+            app:destination="@id/ForgotVerifyFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ForgotVerifyFragment"
+        android:name="com.example.vsldental.ForgotVerifyFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_forgot_verify">
+        <action
+            android:id="@+id/action_continue"
+            app:destination="@id/CreateNewFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/CreateNewFragment"
+        android:name="com.example.vsldental.CreatePasswordFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_create_password">
+    </fragment>
+
 </navigation>
