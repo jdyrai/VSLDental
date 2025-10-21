@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".WelcomeFragment">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="app logo"
+        android:src="@drawable/img_welcome"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeMinTextSize="20sp"
+        android:text="Let's \nget started"
+        android:textSize="36sp"
+        android:textColor="@color/mainColor"
+        android:fontFamily="@font/inter_24pt_semibold"
+        android:letterSpacing="-0.0005"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoSizeMaxTextSize="20sp"
+        android:autoSizeMinTextSize="10sp"
+        android:text="Easily book appointments and track your\noral health with our smart dental app"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="-0.0005"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/str2TopGuideline"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_24pt_semibold"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/mainColor"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:stateListAnimator="@null"
+        app:cornerRadius="4dp"
+        app:elevation="0dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintEnd_toEndOf="@id/btnEndGuideline"
+        app:layout_constraintStart_toStartOf="@id/btnStartGuideline"
+        app:layout_constraintTop_toBottomOf="@id/btnTopGuideline"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Create your Account"
+        android:textSize="14sp"
+        android:textColor="@color/mainColor"
+        android:fontFamily="@font/inter_24pt_medium"
+        android:textAllCaps="false"
+        android:background="@null"
+        app:backgroundTint="@android:color/transparent"
+        app:rippleColor="@color/mainColor"
+        android:stateListAnimator="@null"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        app:cornerRadius="4dp"
+        app:elevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/mainColor"
+        app:layout_constraintEnd_toEndOf="@id/btnEndGuideline"
+        app:layout_constraintStart_toStartOf="@id/btnStartGuideline"
+        app:layout_constraintTop_toBottomOf="@id/btn2TopGuideline"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0444" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9556" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.049" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/str1TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/str2TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.626" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.77" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btn2TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.846" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnStartGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0833" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnEndGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9167" />
+</androidx.constraintlayout.widget.ConstraintLayout>
