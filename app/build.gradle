@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    namespace "com.example.vsldental"
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.vsldental"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 

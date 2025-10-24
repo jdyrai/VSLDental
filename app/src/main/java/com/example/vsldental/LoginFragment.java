@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -163,6 +164,30 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        MaterialButton btnLogin = view.findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(() -> {
+                    try {
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/Login.php";
+                        String postData = "email=" + inputEmail.getText().toString() +
+                                "&password=" + inputPass.getText().toString();
+
+                        String result = ConnectToDatabase.sendPostRequest(urlStr, postData);
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Server says: " + result, Toast.LENGTH_LONG).show()
+                        );
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                        );
+                    }
+                }).start();
+            }
+        });
+
         MaterialButton btnGoToPhone = view.findViewById(R.id.btnGoToPhone);
         btnGoToPhone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +195,8 @@ public class LoginFragment extends Fragment {
                 NavController navController = Navigation.findNavController(view);
                 navController.navigate(R.id.action_go_to_phone);
             }
+
+
         });
 
         TextView linkToSignUp = view.findViewById(R.id.tvEmailSignUp);

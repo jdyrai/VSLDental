@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -199,6 +200,26 @@ public class RegisterFragment extends Fragment {
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
                 navController.navigate(R.id.action_continue);
+
+                new Thread(() -> {
+                    try {
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/AccountRegistration_Page2.php";
+                        String postData = "email=" + inputEmail.getText().toString() +
+                                "&password=" + inputPass.getText().toString() +
+                                "&role=Patient" +
+                                "&fullname=" + inputFullName.getText().toString();
+                        String result = ConnectToDatabase.sendPostRequest(urlStr, postData);
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Server says: " + result, Toast.LENGTH_LONG).show()
+                        );
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                        );
+                    }
+                }).start();
+
             }
         });
 
