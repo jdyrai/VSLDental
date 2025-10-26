@@ -56,8 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upcoming Appointments"
-        android:textSize="12sp"
-        android:textColor="@color/subColor"
+        android:textSize="17sp"
+        android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@id/layoutAppointmentTopGuideline"/>
@@ -156,8 +156,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Services"
-        android:textSize="12sp"
-        android:textColor="@color/subColor"
+        android:textSize="17sp"
+        android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@id/layoutServicesTopGuideline"/>
@@ -299,9 +299,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RECENT APPOINTMENTS"
-        android:textSize="10sp"
-        android:textColor="@color/subColor"
+        android:text="Recent Appointments"
+        android:textSize="17sp"
+        android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@id/layoutHistoryTopGuideline"/>
@@ -362,7 +362,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.21" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutCardTopGuideline"
@@ -376,27 +376,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.41" />
+        app:layout_constraintGuide_percent="0.42" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutServicesItemTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.417" />
+        app:layout_constraintGuide_percent="0.435" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutHistoryTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.750" />
+        app:layout_constraintGuide_percent="0.77" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutHistoryItemTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.760" />
+        app:layout_constraintGuide_percent="0.790" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

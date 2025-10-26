@@ -43,7 +43,7 @@ public class ForgotEmailFragment extends Fragment {
         LinearLayout layoutEmail = view.findViewById(R.id.layoutEmail);
 
         inputEmail.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutEmail.getBackground();
+            GradientDrawable drawable = (GradientDrawable) layoutEmail.getBackground().mutate();
             if (hasFocus) {
                 int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
                 drawable.setStroke(2, focusedColor);
@@ -56,7 +56,7 @@ public class ForgotEmailFragment extends Fragment {
                         .setDuration(150)
                         .start();
             } else if (inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelEmail.animate()
                         .translationY(15f)
@@ -67,7 +67,7 @@ public class ForgotEmailFragment extends Fragment {
                         .translationY(-21f);
                 inputEmail.setHint("Enter email address");
             } else if (!hasFocus && !inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelEmail.animate()
                         .translationY(15f)

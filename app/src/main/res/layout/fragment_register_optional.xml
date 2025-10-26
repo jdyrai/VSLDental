@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/input_layout"
-        android:paddingVertical="10dp"
+        android:paddingVertical="12dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -104,7 +104,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:translationY="-9dp">
+            android:padding="3dp"
+            android:translationY="-7dp">
 
             <TextView
                 android:id="@+id/prefixPhone"

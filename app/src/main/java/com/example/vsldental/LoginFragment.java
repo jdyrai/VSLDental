@@ -44,7 +44,7 @@ public class LoginFragment extends Fragment {
         LinearLayout layoutEmail = view.findViewById(R.id.layoutEmail);
 
         inputEmail.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutEmail.getBackground();
+            GradientDrawable drawable = (GradientDrawable) layoutEmail.getBackground().mutate();
             if (hasFocus) {
                 int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
                 drawable.setStroke(2, focusedColor);
@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment {
                         .setDuration(150)
                         .start();
             } else if (inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelEmail.animate()
                         .translationY(15f)
@@ -68,7 +68,7 @@ public class LoginFragment extends Fragment {
                         .translationY(-21f);
                 inputEmail.setHint("Enter email address");
             } else if (!hasFocus && !inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelEmail.animate()
                         .translationY(15f)
@@ -85,7 +85,7 @@ public class LoginFragment extends Fragment {
         LinearLayout layoutPass = view.findViewById(R.id.layoutPassword);
 
         inputPass.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutPass.getBackground();
+            GradientDrawable drawable = (GradientDrawable) layoutPass.getBackground().mutate();
             if (hasFocus) {
                 int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
                 drawable.setStroke(2, focusedColor);
@@ -98,7 +98,7 @@ public class LoginFragment extends Fragment {
                         .setDuration(150)
                         .start();
             } else if (inputPass.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelPass.animate()
                         .translationY(16f)
@@ -109,7 +109,7 @@ public class LoginFragment extends Fragment {
                         .translationY(-21f);
                 inputPass.setHint("Enter Password");
             } else if (!hasFocus && !inputPass.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelPass.animate()
                         .translationY(16f)

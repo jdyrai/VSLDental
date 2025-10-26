@@ -24,7 +24,7 @@ public class ForgotPhoneFragment extends Fragment {
     }
 
     EditText inputPhone;
-    TextView labelPhone;
+    TextView labelPhone, prefixPhone;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,24 +32,27 @@ public class ForgotPhoneFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_forgot_phone, container, false);
 
         inputPhone = view.findViewById(R.id.inputPhone);
+        prefixPhone = view.findViewById(R.id.prefixPhone);
         labelPhone = view.findViewById(R.id.labelPhone);
         LinearLayout layoutPhone = view.findViewById(R.id.layoutPhone);
 
         inputPhone.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutPhone.getBackground();
+            GradientDrawable drawable = (GradientDrawable) layoutPhone.getBackground().mutate();
             if (hasFocus) {
                 int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
                 drawable.setStroke(2, focusedColor);
                 inputPhone.setHint("");
                 inputPhone.animate()
-                        .translationY(-4f);
+                        .translationY(13f);
                 labelPhone.animate()
-                        .translationY(-4f)
+                        .translationY(-5f)
                         .alpha(1f)
                         .setDuration(150)
                         .start();
+                prefixPhone.animate()
+                        .translationY(13f);
             } else if (inputPhone.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelPhone.animate()
                         .translationY(15f)
@@ -60,7 +63,7 @@ public class ForgotPhoneFragment extends Fragment {
                         .translationY(-21f);
                 inputPhone.setHint("Enter email address");
             } else if (!hasFocus && !inputPhone.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.black);
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
                 drawable.setStroke(1, defaultColor);
                 labelPhone.animate()
                         .translationY(15f)
