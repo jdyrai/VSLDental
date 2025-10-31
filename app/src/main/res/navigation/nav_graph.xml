@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/DashboardUserFragment">
+    app:startDestination="@id/ChooseDateTimeFragment">
 
     <fragment
         android:id="@+id/SplashFragment"
@@ -191,6 +191,13 @@
         android:name="com.example.vsldental.DashboardUserFragment"
         android:label="Login"
         tools:layout="@layout/fragment_dashboard_user">
+    </fragment>
+
+    <fragment
+        android:id="@+id/ChooseDateTimeFragment"
+        android:name="com.example.vsldental.ChooseDateTimeFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_choose_date_time">
     </fragment>
 
 </navigation>

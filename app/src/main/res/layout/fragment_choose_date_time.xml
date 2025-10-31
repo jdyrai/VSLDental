@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/backgroundColor"
+    tools:context=".ChooseDateTimeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🔹 Back button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="go back"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/topGuideline"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!-- 🔹 Header text -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Appointment"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_semibold"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintTop_toBottomOf="@id/topGuideline" />
+
+        <!-- 🔹 Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Select Date and Time"
+            android:textSize="25sp"
+            android:textColor="@color/mainColor"
+            android:fontFamily="@font/inter_24pt_semibold"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
+
+        <!-- 🔹 Description -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pick your desired date and time for the \nappointment."
+            android:textSize="15sp"
+            android:textColor="@color/subColor"
+            android:fontFamily="@font/inter_24pt_regular"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/str2TopGuideline" />
+
+        <!-- 🔹 Calendar layout -->
+        <LinearLayout
+            android:id="@+id/layoutCalendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="0dp"
+            android:background="@drawable/input_layout"
+            android:clipToPadding="true"
+            android:clipChildren="true"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutCalendarTopGuideline">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="true"
+                android:clipChildren="true">
+
+                <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:scaleX="0.9"
+                    android:scaleY="0.93"
+                    app:mcv_tileWidth="55dp"
+                    app:mcv_tileHeight="39dp"
+                    app:mcv_arrowColor="@color/black"
+                    app:mcv_leftArrowMask="@drawable/ic_caret_left"
+                    app:mcv_rightArrowMask="@drawable/ic_caret_right"
+                    app:mcv_headerTextAppearance="@font/inter_24pt_semibold"
+                    app:mcv_selectionColor="@color/mainColor"
+                    app:mcv_showOtherDates="none"
+                    app:mcv_weekDayTextAppearance="@font/inter_24pt_medium" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- 🔹 Available Time label -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Available Time"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_regular"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutTimeGuideline" />
+
+        <!-- 🔹 Flexbox for time slots -->
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexTimeSlots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:alignItems="center"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutTimeSlotGuideline" />
+
+        <!-- 🔹 Guidelines -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.0444" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9556" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.070" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/str1TopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/str2TopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.183" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/layoutCalendarTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.269" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/layoutTimeGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/layoutTimeSlotGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
