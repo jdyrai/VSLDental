@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-public class LoginFragment extends Fragment {
+public class    LoginFragment extends Fragment {
 
     public LoginFragment() {
         // Required empty public constructor

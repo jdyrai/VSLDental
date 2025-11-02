@@ -1,0 +1,312 @@
+Index: app/src/main/java/com/example/vsldental/BookingHistory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vsldental/BookingHistory.java b/app/src/main/java/com/example/vsldental/BookingHistory.java
+new file mode 100644
+--- /dev/null	(date 1762014991310)
++++ b/app/src/main/java/com/example/vsldental/BookingHistory.java	(date 1762014991310)
+@@ -0,0 +1,64 @@
++package com.example.vsldental;
++
++import android.os.Bundle;
++
++import androidx.fragment.app.Fragment;
++
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++/**
++ * A simple {@link Fragment} subclass.
++ * Use the {@link BookingHistory#newInstance} factory method to
++ * create an instance of this fragment.
++ */
++public class BookingHistory extends Fragment {
++
++    // TODO: Rename parameter arguments, choose names that match
++    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
++    private static final String ARG_PARAM1 = "param1";
++    private static final String ARG_PARAM2 = "param2";
++
++    // TODO: Rename and change types of parameters
++    private String mParam1;
++    private String mParam2;
++
++    public BookingHistory() {
++        // Required empty public constructor
++    }
++
++    /**
++     * Use this factory method to create a new instance of
++     * this fragment using the provided parameters.
++     *
++     * @param param1 Parameter 1.
++     * @param param2 Parameter 2.
++     * @return A new instance of fragment BookingHistory.
++     */
++    // TODO: Rename and change types and number of parameters
++    public static BookingHistory newInstance(String param1, String param2) {
++        BookingHistory fragment = new BookingHistory();
++        Bundle args = new Bundle();
++        args.putString(ARG_PARAM1, param1);
++        args.putString(ARG_PARAM2, param2);
++        fragment.setArguments(args);
++        return fragment;
++    }
++
++    @Override
++    public void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        if (getArguments() != null) {
++            mParam1 = getArguments().getString(ARG_PARAM1);
++            mParam2 = getArguments().getString(ARG_PARAM2);
++        }
++    }
++
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container,
++                             Bundle savedInstanceState) {
++        // Inflate the layout for this fragment
++        return inflater.inflate(R.layout.fragment_booking_history, container, false);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_booking_history.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_booking_history.xml b/app/src/main/res/layout/fragment_booking_history.xml
+new file mode 100644
+--- /dev/null	(date 1762015571048)
++++ b/app/src/main/res/layout/fragment_booking_history.xml	(date 1762015571048)
+@@ -0,0 +1,226 @@
++<?xml version="1.0" encoding="utf-8"?>
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@color/white"
++    tools:context=".CreatePasswordFragment">
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="@id/endGuideline"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toBottomOf="@id/progressTopGuideline" />
++
++    <ImageButton
++        android:id="@+id/btnBack"
++        android:layout_width="22dp"
++        android:layout_height="22dp"
++        android:background="@null"
++        android:clickable="true"
++        android:contentDescription="go back"
++        android:src="@drawable/ic_arrow_left"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toBottomOf="@id/topGuideline"
++        tools:ignore="TouchTargetSizeCheck" />
++
++    <TextView
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="136dp"
++        android:fontFamily="@font/inter_24pt_semibold"
++        android:text="Booking History"
++        android:textColor="@color/subColor"
++        android:textSize="13sp"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
++
++    <TextView
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:fontFamily="@font/inter_24pt_regular"
++        android:text="My Records"
++        android:textColor="@color/subColor"
++        android:textSize="18sp"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toTopOf="@+id/str1TopGuideline" />
++
++    <LinearLayout
++        android:id="@+id/layoutPassword"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        android:background="@drawable/input_layout"
++        android:paddingVertical="10dp"
++        android:paddingHorizontal="16dp"
++        app:layout_constraintEnd_toEndOf="@id/endGuideline"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
++
++        <TextView
++            android:id="@+id/labelPass"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Password"
++            android:textSize="11sp"
++            android:textColor="@color/mainColor"
++            android:fontFamily="@font/inter_24pt_semibold"
++            android:translationY="15dp"
++            android:alpha="0" />
++
++        <EditText
++            android:id="@+id/inputNewPass"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:background="@android:color/transparent"
++            android:hint="Enter password"
++            android:textColorHint="@color/hintColor"
++            android:textSize="14sp"
++            android:textColor="@color/black"
++            android:translationY="-9dp"
++            android:drawableEnd="@drawable/ic_visibility_on"
++            android:drawableTint="@color/hintColor"
++            android:drawablePadding="8dp"
++            android:singleLine="true"
++            android:imeOptions="actionDone"
++            android:inputType="textPassword"/>
++    </LinearLayout>
++
++
++    <LinearLayout
++        android:id="@+id/layoutPassword2"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        android:background="@drawable/input_layout"
++        android:paddingVertical="10dp"
++        android:paddingHorizontal="16dp"
++        app:layout_constraintEnd_toEndOf="@id/endGuideline"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toBottomOf="@id/layoutPass2TopGuideline">
++
++        <TextView
++            android:id="@+id/labelPass2"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Password"
++            android:textSize="11sp"
++            android:textColor="@color/mainColor"
++            android:fontFamily="@font/inter_24pt_semibold"
++            android:translationY="15dp"
++            android:alpha="0" />
++
++        <EditText
++            android:id="@+id/inputReEnterPass"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:background="@android:color/transparent"
++            android:hint="Enter password"
++            android:textColorHint="@color/hintColor"
++            android:textSize="14sp"
++            android:textColor="@color/black"
++            android:translationY="-9dp"
++            android:drawableEnd="@drawable/ic_visibility_on"
++            android:drawableTint="@color/hintColor"
++            android:drawablePadding="8dp"
++            android:singleLine="true"
++            android:imeOptions="actionDone"
++            android:inputType="textPassword"/>
++    </LinearLayout>
++
++
++    <com.google.android.material.button.MaterialButton
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Log in"
++        android:textSize="14sp"
++        android:textColor="@color/white"
++        android:fontFamily="@font/inter_24pt_semibold"
++        android:textAllCaps="false"
++        android:letterSpacing="0.01"
++        android:background="@drawable/gradient_background"
++        android:backgroundTint="@null"
++        android:paddingTop="17dp"
++        android:paddingBottom="17dp"
++        android:stateListAnimator="@null"
++        android:insetTop="0dp"
++        android:insetBottom="0dp"
++        android:insetLeft="0dp"
++        android:insetRight="0dp"
++        app:backgroundTint="@null"
++        app:cornerRadius="4dp"
++        app:elevation="0dp"
++        app:strokeWidth="0dp"
++        app:layout_constraintEnd_toEndOf="@id/endGuideline"
++        app:layout_constraintStart_toStartOf="@id/startGuideline"
++        app:layout_constraintTop_toBottomOf="@id/btnTopGuideline"/>
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/startGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        app:layout_constraintGuide_percent="0.0444" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/endGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        app:layout_constraintGuide_percent="0.9556" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/progressTopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.075" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/topGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.070" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/str1TopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.13" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/str2TopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.173" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/layoutPass1TopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.26" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/layoutPass2TopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.337" />
++
++    <androidx.constraintlayout.widget.Guideline
++        android:id="@+id/btnTopGuideline"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        app:layout_constraintGuide_percent="0.85" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
