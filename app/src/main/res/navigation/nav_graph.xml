@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/ChooseDateTimeFragment">
+    app:startDestination="@id/bookingHistory">
 
     <fragment
         android:id="@+id/SplashFragment"
@@ -199,5 +199,36 @@
         android:label="Login"
         tools:layout="@layout/fragment_choose_date_time">
     </fragment>
+
+    <fragment
+        android:id="@+id/bookingHistory"
+        android:name="com.example.vsldental.BookingHistory"
+        android:label="Booking History"
+        tools:layout="@layout/fragment_booking_history">
+
+        <action
+            android:id="@+id/action_bookingHistory_to_bookingHistoryDetails"
+            app:destination="@id/bookingHistoryDetails"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+        <fragment
+            android:id="@+id/bookingHistoryDetails"
+            android:name="com.example.vsldental.BookingHistoryDetails"
+            android:label="Booking History Details"
+            tools:layout="@layout/fragment_booking_history_details">
+
+
+    <action
+        android:id="@+id/action_bookingHistoryDetails_to_bookingHistory"
+        app:destination="@id/bookingHistory"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"/>
+        </fragment>
 
 </navigation>
