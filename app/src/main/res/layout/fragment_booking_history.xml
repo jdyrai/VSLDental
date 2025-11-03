@@ -9,13 +9,27 @@
 
 
     <LinearLayout
-        android:id="@+id/layoutPassword"
+        android:id="@+id/AppointmentContainer10"
         android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="44dp"
+
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+    <LinearLayout
+        android:id="@+id/layoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@drawable/input_layout"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.0"
@@ -92,14 +106,20 @@
 
     </LinearLayout>
 
+
+
+
+
+
     <LinearLayout
         android:id="@+id/AppointmentContainer"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/input_layout"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.0"
@@ -177,12 +197,13 @@
 
     <LinearLayout
         android:id="@+id/AppointmentContainer2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/input_layout"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.0"
@@ -260,12 +281,13 @@
 
     <LinearLayout
         android:id="@+id/AppointmentContainer3"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/input_layout"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.0"
@@ -339,6 +361,11 @@
 
         </LinearLayout>
 
+
+    </LinearLayout>
+
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -358,10 +385,12 @@
 
         <LinearLayout
             android:id="@+id/HomeContainer"
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
@@ -390,7 +419,6 @@
                 android:id="@+id/HomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:fontFamily="@font/inter_24pt_semibold"
                 android:text="Home"
                 android:textColor="@color/black"
@@ -401,11 +429,14 @@
 
         <LinearLayout
             android:id="@+id/AppointContainer"
-            android:layout_width="1dp"
+            android:layout_width="0dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
             android:paddingVertical="10dp"
@@ -442,10 +473,12 @@
 
         <LinearLayout
             android:id="@+id/RecordsContainer"
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
@@ -483,14 +516,15 @@
 
         <LinearLayout
             android:id="@+id/ProfileContainer"
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/input_layout"
             android:gravity="center"
-
+            android:clickable="true"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
+            android:focusable="true"
             android:paddingVertical="10dp"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintHorizontal_bias="0.0"
@@ -595,6 +629,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="16dp"
         android:paddingVertical="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -696,10 +731,9 @@
         android:id="@+id/SearchBarAndSortContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_layout"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingHorizontal="0dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.0"
@@ -711,12 +745,13 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
+
             android:background="@drawable/input_layout"
             android:drawableStart="@drawable/img_search_icon"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:singleLine="true"
+            android:paddingStart= "10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/mcv_text_date_dark"
             android:textSize="14sp"
