@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".CreatePasswordFragment">
+
+
+    <LinearLayout
+        android:id="@+id/BookingSummaryListsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/progress_shape"
+        android:orientation="horizontal"
+
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/NoteContainer">
+
+
+        <LinearLayout
+            android:id="@+id/DateContainer2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingLeft="5dp"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+            <TextView
+
+                android:id="@+id/DateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Date"
+                android:textColor="@color/black"
+
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/AttendingDentist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:text="Juandelacruz@gmail.com"
+                android:textColor="@color/subColor"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ServiceContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:paddingLeft="5dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+            <TextView
+                android:id="@+id/ServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Service"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/PhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Phone Number"
+                android:textColor="@color/subColor"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/StatusContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+            <TextView
+
+                android:id="@+id/StatusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Status"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+
+                android:id="@+id/PaymentStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:text="08-21-2025"
+                android:textColor="@color/subColor"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/YourAppointmentContainerIMG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/DetailsContainer"/>
+
+    <LinearLayout
+
+        android:id="@+id/YourAppointmentContainer"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/YourAppointmentContainerIMG">
+
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/ProfilePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/YourAppointmentContainerIMG">
+
+        <ImageView
+            android:id="@+id/ProfileImage"
+            android:layout_width="180dp"
+        android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+        android:src="@drawable/img_profilepic"
+        android:background="@drawable/img_profilepic"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/InformationContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_uppercorner"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/YourAppointmentContainer">
+
+        <TextView
+            android:id="@+id/InformationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter_24pt_semibold"
+            android:text="Information"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/AppointmentContainer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/progress_shape"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/InformationContainer">
+
+
+        <LinearLayout
+            android:id="@+id/DateContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+            <TextView
+                android:id="@+id/NameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/EmailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/PhoneNumberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:text="Phone Number"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ServiceandTimeContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/layoutPass1TopGuideline">
+
+            <TextView
+
+                android:id="@+id/DateAndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:text="Juan Dela Cruz"
+                android:textColor="@color/subColor"
+
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:text="Juandelacruz@gmail.com"
+                android:textColor="@color/subColor"
+                android:textSize="13sp" />
+
+            <TextView
+
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                android:text="08-21-2025"
+                android:textColor="@color/subColor"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/NoteContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/curved_uppercorner"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/AppointmentContainer2">
+
+        <TextView
+            android:id="@+id/NoteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:text="Booking Summary"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/progressTopGuideline" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:background="@null"
+        android:clickable="true"
+        android:contentDescription="go back"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/topGuideline"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <LinearLayout
+        android:id="@+id/DetailsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="0dp"
+        android:gravity="center"
+        android:paddingVertical="0dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/ClientDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_24pt_semibold"
+            android:text="Client Details"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0444" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9556" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/progressTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.075" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.070" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/str1TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/str2TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.173" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/layoutPass1TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/layoutPass2TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.337" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
