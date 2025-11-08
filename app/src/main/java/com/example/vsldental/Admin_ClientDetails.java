@@ -3,10 +3,15 @@ package com.example.vsldental;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +63,28 @@ public class Admin_ClientDetails extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_admin__client_details, container, false);
+        NavController navController = NavHostFragment.findNavController(this);
+
+        Bundle args = getArguments();
+
+        String email = args.getString("email");
+        String role = args.getString("role");
+
+
+        TextView emailView = view.findViewById(R.id.Email);
+        TextView roleView = view.findViewById(R.id.Date);
+
+        emailView.setText(email);
+        roleView.setText(role);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin__client_details, container, false);
+
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Back button clicked!");
+            navController.popBackStack();
+        });
+
+        return view;
     }
 }

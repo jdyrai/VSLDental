@@ -1,13 +1,19 @@
 package com.example.vsldental;
-
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BookingHistoryDetails#newInstance} factory method to
@@ -58,7 +64,18 @@ public class BookingHistoryDetails extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_booking_history_details, container, false);
+        // Inflate the layout for this
+        View view =  inflater.inflate(R.layout.fragment_booking_history_details, container, false);
+        NavController navController = NavHostFragment.findNavController(this);
+
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            navController.popBackStack();
+            Log.d("BookingHistory", "BHD");
+        });
+
+
+        return view;
+
     }
 }

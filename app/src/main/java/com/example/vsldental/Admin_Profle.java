@@ -1,12 +1,20 @@
 package com.example.vsldental;
-
+import android.content.Context;
 import android.os.Bundle;
-
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.button.MaterialButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +67,95 @@ public class Admin_Profle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin__profle, container, false);
+        View view = inflater.inflate(R.layout.fragment_admin__profle, container, false);
+        NavController navController = NavHostFragment.findNavController(this);
+
+        new Thread(() -> {
+            boolean isAuthorized = SessionChecker.checkAdminSession(requireContext());
+
+            requireActivity().runOnUiThread(() -> {
+                if (!isAuthorized) {
+                    Toast.makeText(requireContext(),
+                            "Access Denied: Admins only.", Toast.LENGTH_LONG).show();
+
+                    // Optional: Clear session if invalid
+                    requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+                            .edit().remove("session_id").apply();
+
+                    requireActivity().finish(); // Close this activity or redirect
+                } else {
+                    Log.d("AdminProfile", "Access granted. Welcome, Admin!");
+                }
+            });
+        }).start();
+
+
+
+
+        LinearLayout Logout = view.findViewById(R.id.LogOutContainer);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Logout", "LogoutClickedd");
+                new Thread(() -> {
+                    try {
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/Logout.php";
+                        String result = ConnectToDatabase.sendPostRequest(urlStr, ""); // no data needed
+
+                        requireActivity().runOnUiThread(() -> {
+                            Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show();
+
+                            // Clear session info in SharedPreferences
+                            requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+                                    .edit()
+                                    .remove("session_id")
+                                    .apply();
+
+                            // Redirect to login page
+                            NavController navController = Navigation.findNavController(view);
+                            navController.navigate(R.id.action_adminProfile_to_login);
+                        });
+
+                    } catch (Exception e) {
+                        requireActivity().runOnUiThread(() -> {
+                                    Toast.makeText(requireContext(), "Logout failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Log.d("Logout", e.getMessage());
+                                }
+                        );
+                    }
+                }).start();
+            }
+        });
+
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Back button clicked!");
+            navController.popBackStack();
+        });
+        LinearLayout AppointBtn = view.findViewById(R.id.AppointContainer);
+        AppointBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            navController.navigate(R.id.action_adminProfile_to_adminAppoint);
+        });
+
+        LinearLayout ManageServiceBtn = view.findViewById(R.id.ManageServicesContainer);
+        ManageServiceBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            navController.navigate(R.id.action_adminProfile_to_manageServices);
+        });
+
+        LinearLayout RecordsBtn = view.findViewById(R.id.RecordsContainer);
+        RecordsBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            navController.navigate(R.id.action_adminProfile_to_adminRecords);
+        });
+
+        LinearLayout HomeBtn = view.findViewById(R.id.HomeContainer);
+        HomeBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            navController.navigate(R.id.action_adminProfile_to_adminDashboard);
+        });
+
+        return view;
     }
 }

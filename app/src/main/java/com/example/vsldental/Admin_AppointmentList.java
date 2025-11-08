@@ -3,10 +3,15 @@ package com.example.vsldental;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +64,34 @@ public class Admin_AppointmentList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin__appointment_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_admin__appointment_list, container, false);
+        NavController navController = NavHostFragment.findNavController(this);
+
+
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Back button clicked!");
+            navController.popBackStack();
+        });
+
+        LinearLayout RecordsBtn = view.findViewById(R.id.RecordsContainer);
+        RecordsBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            navController.navigate(R.id.action_adminAppoint_to_adminRecords);
+        });
+
+        LinearLayout ProfileBtn = view.findViewById(R.id.ProfileContainer);
+        ProfileBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Profile clicked!");
+            navController.navigate(R.id.action_adminAppoint_to_adminProfile);
+        });
+
+        LinearLayout HomeBtn = view.findViewById(R.id.HomeContainer);
+        HomeBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Profile clicked!");
+            navController.navigate(R.id.action_adminAppoint_to_adminDashboard);
+        });
+
+        return view;
     }
 }

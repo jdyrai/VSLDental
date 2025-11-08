@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/bookingHistory">
+    app:startDestination="@id/adminDashboard">
 
     <fragment
         android:id="@+id/SplashFragment"
@@ -15,7 +15,7 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -29,49 +29,57 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_welcomeFragment_to_RegisterFragment"
             app:destination="@id/RegisterFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.example.vsldental.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_go_back_to_welcome"
             app:destination="@id/WelcomeFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_go_to_phone"
             app:destination="@id/LoginPhoneFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_go_to_forgot"
             app:destination="@id/ForgotEmailFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_go_to_register"
             app:destination="@id/RegisterFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_login_to_adminDashboard"
+            app:destination="@id/adminDashboard"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -85,14 +93,22 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_go_to_register"
             app:destination="@id/RegisterFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_login_to_adminProfile"
+            app:destination="@id/adminProfile"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
     </fragment>
 
     <fragment
@@ -106,22 +122,21 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_continue"
             app:destination="@id/RegisterOptionalFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/RegisterOptionalFragment"
         android:name="com.example.vsldental.RegisterOptionalFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_register_optional">
-    </fragment>
+        tools:layout="@layout/fragment_register_optional"></fragment>
 
     <fragment
         android:id="@+id/ForgotEmailFragment"
@@ -134,14 +149,14 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_continue"
             app:destination="@id/ForgotVerifyFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -155,14 +170,14 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_continue"
             app:destination="@id/ForgotVerifyFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -176,29 +191,26 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/CreateNewFragment"
         android:name="com.example.vsldental.CreatePasswordFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_create_password">
-    </fragment>
+        tools:layout="@layout/fragment_create_password"></fragment>
 
     <fragment
         android:id="@+id/DashboardUserFragment"
         android:name="com.example.vsldental.DashboardUserFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_dashboard_user">
-    </fragment>
+        tools:layout="@layout/fragment_dashboard_user"></fragment>
 
     <fragment
         android:id="@+id/ChooseDateTimeFragment"
         android:name="com.example.vsldental.ChooseDateTimeFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_choose_date_time">
-    </fragment>
+        tools:layout="@layout/fragment_choose_date_time"></fragment>
 
     <fragment
         android:id="@+id/bookingHistory"
@@ -208,27 +220,224 @@
 
         <action
             android:id="@+id/action_bookingHistory_to_bookingHistoryDetails"
-            app:destination="@id/bookingHistoryDetails"
+            app:destination="@id/bookingHistoryDetails" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingHistoryDetails"
+        android:name="com.example.vsldental.BookingHistoryDetails"
+        android:label="Booking History Details"
+        tools:layout="@layout/fragment_booking_history_details">
+
+
+        <action
+            android:id="@+id/action_bookingHistoryDetails_to_bookingHistory"
+            app:destination="@id/bookingHistory"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
-        <fragment
-            android:id="@+id/bookingHistoryDetails"
-            android:name="com.example.vsldental.BookingHistoryDetails"
-            android:label="Booking History Details"
-            tools:layout="@layout/fragment_booking_history_details">
+
+    <fragment
+        android:id="@+id/manageServices"
+        android:name="com.example.vsldental.ManageServices"
+        android:label="Booking History Details"
+        tools:layout="@layout/fragment_manage_services" />
 
 
-    <action
-        android:id="@+id/action_bookingHistoryDetails_to_bookingHistory"
-        app:destination="@id/bookingHistory"
-        app:enterAnim="@anim/fade_in"
-        app:exitAnim="@anim/fade_out"
-        app:popEnterAnim="@anim/fade_in"
-        app:popExitAnim="@anim/fade_out"/>
-        </fragment>
+    <fragment
+        android:id="@+id/adminAppoint"
+        android:name="com.example.vsldental.Admin_AppointmentList"
+        android:label="Admin Appointment List"
+        tools:layout="@layout/fragment_admin__appointment_list">
+        <action
+            android:id="@+id/action_adminAppoint_to_adminAppointmentListDetails"
+            app:destination="@id/adminAppointDetails"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
 
+        <action
+            android:id="@+id/action_adminAppoint_to_adminRecords"
+            app:destination="@id/adminRecords"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminAppoint_to_adminProfile"
+            app:destination="@id/adminProfile"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminAppoint_to_adminDashboard"
+            app:destination="@id/adminDashboard"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminAppointDetails"
+        android:name="com.example.vsldental.Admin_AppointmentDetails"
+        android:label="Booking History Details"
+        tools:layout="@layout/fragment_admin__appointment_details" />
+
+
+
+    <fragment
+        android:id="@+id/adminProfile"
+        android:name="com.example.vsldental.Admin_Profle"
+        android:label="Admin Profile"
+        tools:layout="@layout/fragment_admin__profle">
+
+        <action
+            android:id="@+id/action_adminProfile_to_manageServices"
+            app:destination="@id/manageServices"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+
+        <action
+            android:id="@+id/action_adminProfile_to_login"
+            app:destination="@id/LoginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminProfile_to_adminAppointmentList"
+            app:destination="@id/adminAppoint"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminProfile_to_adminAppoint"
+            app:destination="@id/adminAppoint"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminProfile_to_adminRecords"
+            app:destination="@id/adminRecords"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminProfile_to_adminDashboard"
+            app:destination="@id/adminDashboard"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/adminRecords"
+        android:name="com.example.vsldental.Admin_Records"
+        android:label="Admin Records"
+        tools:layout="@layout/fragment_admin__records">
+
+        <action
+            android:id="@+id/action_adminRecords_to_adminClientDetails"
+            app:destination="@id/adminClientDetails"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminRecords_to_adminAppoint"
+            app:destination="@id/adminAppoint"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminRecords_to_adminProfile"
+            app:destination="@id/adminProfile"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_adminRecords_to_adminDashboard"
+            app:destination="@id/adminDashboard"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminDashboard"
+        android:name="com.example.vsldental.Admin_HomePage"
+        android:label="Admin Records"
+        tools:layout="@layout/fragment_admin__home_page">
+
+        <action
+            android:id="@+id/action_adminDashboard_to_adminAppoint"
+            app:destination="@id/adminAppoint"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+
+        <action
+            android:id="@+id/action_adminDashboard_to_adminRecords"
+            app:destination="@id/adminRecords"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+
+        <action
+            android:id="@+id/action_adminDashboard_to_adminProfile"
+            app:destination="@id/adminProfile"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminClientDetails"
+        android:name="com.example.vsldental.Admin_ClientDetails"
+        android:label="Admin Records"
+        tools:layout="@layout/fragment_admin__client_details">
+
+        <action
+            android:id="@+id/action_adminClientDetails_to_adminRecords"
+            app:destination="@id/adminRecords"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+    </fragment>
 </navigation>
