@@ -34,8 +34,8 @@
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="15dp"
+        android:layout_height="19dp"
         android:background="@null"
         android:clickable="true"
         android:contentDescription="go back"
