@@ -249,7 +249,7 @@ public class Admin_HomePage extends Fragment {
             navController.navigate(R.id.action_adminDashboard_to_adminAppoint);
         });
 
-        LinearLayout SeeAllTexts = view.findViewById(R.id.SeeAllText);
+        TextView SeeAllTexts = view.findViewById(R.id.SeeAllText);
         SeeAllTexts.setOnClickListener(v -> {
             Log.d("BookingHistory", "Profile clicked!");
             navController.navigate(R.id.action_adminDashboard_to_adminAppoint);
