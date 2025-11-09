@@ -1,0 +1,51 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Reviewer name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jaslee"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"/>
+
+        <!-- Review text -->
+        <TextView
+            android:id="@+id/tvReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="First time ko magpa bunot pero sobrang thank you kay Doc..."
+            android:textColor="@android:color/black"
+            android:textSize="13sp"/>
+
+        <!-- Rating stars -->
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="5"
+            android:stepSize="1"
+            android:progressTint="@color/mainColor"
+            style="?android:attr/ratingBarStyleSmall"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

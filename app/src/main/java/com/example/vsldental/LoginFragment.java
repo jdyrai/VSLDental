@@ -1,10 +1,10 @@
 package com.example.vsldental;
-import org.json.JSONObject;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.util.Log;
+
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -168,69 +168,21 @@ public class    LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("LoginResponse", "Click Test ");
-
                 new Thread(() -> {
                     try {
-                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/LoginWoutHash.php";
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/Login.php";
                         String postData = "email=" + inputEmail.getText().toString() +
                                 "&password=" + inputPass.getText().toString();
-                        Log.d("LoginResponse", postData);
 
                         String result = ConnectToDatabase.sendPostRequest(urlStr, postData);
-                        Log.d("LoginResponse", result);
-                        requireActivity().runOnUiThread(() -> {
-                            try {
-                                JSONObject json = new JSONObject(result);
-                                String status = json.getString("status");
-                                Log.d("LoginResponse", status);
-                                if (status.equals("success")) {
-                                    String role = json.getString("role");
-                                    String sessionId = json.getString("session_id");
-                                    String userID = json.getString("user_id");
-
-                                    requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-                                            .edit()
-                                            .putString("session_id", sessionId)
-                                            .putString("role", role)
-                                            .putString("user_id",userID)
-                                            .apply();
-
-                                    Toast.makeText(requireContext(),
-                                            "Welcome " + role + "!", Toast.LENGTH_SHORT).show();
-
-                                    // Example redirect depending on role
-                                    NavController navController = Navigation.findNavController(view);
-                                    if (role.equalsIgnoreCase("Admin")) {
-                                        navController.navigate(R.id.action_login_to_adminDashboard);
-                                        Log.d("LoginResponse", "Response from server: " + result);
-                                    } else if (role.equalsIgnoreCase("Staff")) {
-                                        Log.d("LoginResponse", "Response from server: " + result);
-                                      //  navController.navigate(R.id.action_login_to_staffDashboard);
-                                    } else if (role.equalsIgnoreCase("Patient")) {
-                                        Log.d("LoginResponse", "Response from server: " + result);
-                                       // navController.navigate(R.id.action_login_to_patientDashboard);
-                                    }
-
-                                } else {
-                                    Toast.makeText(requireContext(),
-                                            json.getString("message"), Toast.LENGTH_LONG).show();
-                                    Log.d("LoginResponse", "Failed: " + result);
-                                }
-
-                            } catch (Exception e) {
-                                Toast.makeText(requireContext(),
-                                        "Invalid response: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                                Log.d("LoginResponse", "Response from server: " + e.getMessage());
-
-                            }
-                        });
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Server says: " + result, Toast.LENGTH_LONG).show()
+                        );
                     } catch (Exception e) {
                         e.printStackTrace();
-                        requireActivity().runOnUiThread(() -> {
-                            Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            Log.d("LoginResponse", "Response from server: " + e.getMessage());
-                        });
+                        requireActivity().runOnUiThread(() ->
+                                Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                        );
                     }
                 }).start();
             }

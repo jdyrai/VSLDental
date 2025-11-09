@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +13,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 
 public class ChooseDateTimeFragment extends Fragment {
+
+    private RecyclerView timeRecycler;
 
     public ChooseDateTimeFragment() {
         // Required empty public constructor
@@ -33,50 +37,36 @@ public class ChooseDateTimeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_choose_date_time, container, false);
 
-        FlexboxLayout flexTimeSlots = view.findViewById(R.id.flexTimeSlots);
+        timeRecycler = view.findViewById(R.id.timeRecycler);
 
-        List<String> timeSlots = new ArrayList<>();
-        LocalTime start = LocalTime.of(8, 0);
-        LocalTime end = LocalTime.of(17, 0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        List<String> timeSlots = generateTimeSlots();
 
-        while (!start.isAfter(end)) {
-            timeSlots.add(start.format(formatter));
-            start = start.plusMinutes(30);
-        }
+        TimeAdapter adapter = new TimeAdapter(timeSlots, time ->
+                // You can handle the selected time here
+                System.out.println("Selected time: " + time)
+        );
 
-        for (String time : timeSlots) {
-            addTimeButton(flexTimeSlots, time);
-        }
+        timeRecycler.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        timeRecycler.setAdapter(adapter);
 
         return view;
     }
 
-    private void addTimeButton(FlexboxLayout flexLayout, String timeText) {
-        Button btn = new Button(getContext());
-        btn.setText(timeText);
-        btn.setAllCaps(false);
-        btn.setBackgroundResource(R.drawable.time_slot);
-        btn.setTextColor(Color.parseColor("#999999"));
-        btn.setTextSize(14);
-        btn.setPadding(40, 16, 40, 16);
-        btn.setStateListAnimator(null);
+    private List<String> generateTimeSlots() {
+        List<String> times = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.US);
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 8);
+        cal.set(Calendar.MINUTE, 30);
 
-        FlexboxLayout.LayoutParams params =
-                new FlexboxLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(8, 8, 8, 8);
-        btn.setLayoutParams(params);
+        Calendar end = Calendar.getInstance();
+        end.set(Calendar.HOUR_OF_DAY, 18);
+        end.set(Calendar.MINUTE, 0);
 
-        btn.setOnClickListener(v -> {
-            for (int i = 0; i < flexLayout.getChildCount(); i++) {
-                flexLayout.getChildAt(i).setSelected(false);
-            }
-            v.setSelected(true);
-        });
-
-        flexLayout.addView(btn);
+        while (cal.before(end) || cal.equals(end)) {
+            times.add(sdf.format(cal.getTime()));
+            cal.add(Calendar.MINUTE, 30);
+        }
+        return times;
     }
-
 }
