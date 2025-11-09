@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,10 +16,11 @@ import androidx.navigation.fragment.NavHostFragment;
 public class SplashFragment extends Fragment {
 
     private boolean hasNavigated = false;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     private Runnable navigateRunnable;
+
     public SplashFragment() {
-        // Required empty public constructor
+
     }
 
     @Nullable
@@ -31,8 +31,7 @@ public class SplashFragment extends Fragment {
 
         ImageView logo = view.findViewById(R.id.logo);
 
-        // Play the pop-up animation
-        Animation popUp = AnimationUtils.loadAnimation(requireContext(), R.anim.pop_up);
+        Animation popUp = AnimationUtils.loadAnimation(requireContext(), R.anim.anim_pop_up);
         logo.startAnimation(popUp);
 
         navigateRunnable = () -> navigateToWelcome(view);
@@ -40,7 +39,7 @@ public class SplashFragment extends Fragment {
 
 
         view.setOnClickListener(v -> {
-            handler.removeCallbacks(navigateRunnable); // cancel delayed navigation
+            handler.removeCallbacks(navigateRunnable);
             navigateToWelcome(view);
         });
 

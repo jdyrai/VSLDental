@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
     android:background="@color/backgroundColor"
     tools:context=".LoginFragment">
 
     <ImageButton
         android:id="@+id/btnBack"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:background="@null"
+        android:clickable="true"
+        android:contentDescription="Go Back"
+        android:src="@drawable/ic_arrow_left"
+        app:tint="@color/black"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/topGuideline"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/btnLogo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:contentDescription="login image"
+        android:contentDescription="Company Logo"
         android:src="@drawable/img_logo"
         app:layout_constraintWidth_percent="0.3"
         app:layout_constraintDimensionRatio="1.1"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintTop_toBottomOf="@id/topGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/ContentTopGuideline" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="27sp"
         android:text="Welcome Back!"
         android:textSize="25sp"
         android:textColor="@color/mainColor"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintTop_toBottomOf="@id/str1TopGuideline"/>
@@ -37,10 +57,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Login to manage your appointments."
         android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline"/>
@@ -50,7 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/input_layout"
+        android:background="@drawable/drawable_input_layout"
         android:paddingVertical="10dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
@@ -61,10 +84,13 @@
             android:id="@+id/labelEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizeMinTextSize="6sp"
+            android:autoSizeMaxTextSize="13sp"
             android:text="Email Address"
             android:textSize="11sp"
             android:textColor="@color/mainColor"
             android:fontFamily="@font/inter_24pt_semibold"
+            android:letterSpacing="0.0001"
             android:translationY="15dp"
             android:alpha="0"/>
 
@@ -73,36 +99,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:autoSizeMinTextSize="9sp"
+            android:autoSizeMaxTextSize="16sp"
             android:hint="Enter email address"
             android:textColorHint="@color/hintColor"
             android:textSize="14sp"
             android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="0.0001"
             android:translationY="-9dp"
             android:singleLine="true"
             android:imeOptions="actionNext"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            tools:ignore="touchTargetSizeCheck"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEmailError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/errorColor"
+        android:textSize="12sp"
+        android:fontFamily="@font/inter_24pt_regular"
+        android:visibility="gone"
+        android:text="Invalid email address"
+        app:layout_constraintTop_toBottomOf="@id/layoutEmail"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        android:paddingStart="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="4dp"/>
 
     <LinearLayout
         android:id="@+id/layoutPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/input_layout"
+        android:background="@drawable/drawable_input_layout"
+        android:layout_marginTop="5dp"
         android:paddingVertical="10dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/layoutPassTopGuideline">
+        app:layout_constraintTop_toBottomOf="@id/tvEmailError">
 
         <TextView
             android:id="@+id/labelPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizeMinTextSize="6sp"
+            android:autoSizeMaxTextSize="13sp"
             android:text="Password"
             android:textSize="11sp"
             android:textColor="@color/mainColor"
             android:fontFamily="@font/inter_24pt_semibold"
+            android:letterSpacing="0.0001"
             android:translationY="15dp"
             android:alpha="0" />
 
@@ -111,25 +162,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:autoSizeMinTextSize="9sp"
+            android:autoSizeMaxTextSize="16sp"
             android:hint="Enter password"
             android:textColorHint="@color/hintColor"
             android:textSize="14sp"
             android:textColor="@color/black"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="0.0001"
             android:translationY="-9dp"
             android:drawableEnd="@drawable/ic_visibility_on"
             android:drawableTint="@color/hintColor"
             android:drawablePadding="8dp"
             android:singleLine="true"
             android:imeOptions="actionDone"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            tools:ignore="touchTargetSizeCheck"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPassError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/errorColor"
+        android:textSize="12sp"
+        android:fontFamily="@font/inter_24pt_regular"
+        android:visibility="gone"
+        android:text="Password must be at least 6 characters"
+        app:layout_constraintTop_toBottomOf="@id/layoutPassword"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        android:paddingStart="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="4dp"/>
 
     <TextView
         android:id="@+id/goToForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="forgot password?"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_medium"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
@@ -140,13 +214,15 @@
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Log in"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -166,13 +242,15 @@
         android:id="@+id/btnGoToPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Continue with Phone Number"
         android:textSize="14sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_medium"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_border"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_border"
         app:backgroundTint="@null"
         app:rippleColor="@color/mainColor"
         android:stateListAnimator="@null"
@@ -193,16 +271,21 @@
         android:id="@+id/tvEmailSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/signup_text"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_medium"
+        android:letterSpacing="0.0001"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/signUpTopGuideline"/>
+        app:layout_constraintTop_toBottomOf="@id/signUpTopGuideline"
+        tools:ignore="touchTargetSizeCheck"/>
 
+    <!-- Guidelines -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideline"
         android:layout_width="wrap_content"
@@ -222,6 +305,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.030" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ContentTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.070" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -236,7 +326,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.244" />
+        app:layout_constraintGuide_percent="0.247" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutEmailTopGuideline"
@@ -271,13 +361,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.820" />
+        app:layout_constraintGuide_percent="0.822" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/signUpTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.93" />
+        app:layout_constraintGuide_percent="0.916" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

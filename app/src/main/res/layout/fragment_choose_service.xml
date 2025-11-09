@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:fillViewport="true"
     android:background="@color/backgroundColor"
     tools:context=".ChooseServiceFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavBar">
 
-    <ImageButton
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollableContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="22dp"
         android:layout_height="22dp"
@@ -28,10 +40,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeMaxTextSize="13sp"
         android:text="Appointment"
-        android:textSize="13sp"
+        android:textSize="11sp"
         android:textColor="@color/black"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/inter_24pt_medium"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintTop_toBottomOf="@id/topGuideline" />
@@ -39,20 +54,26 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="25sp"
         android:text="Choose a Service"
-        android:textSize="25sp"
+        android:textSize="23sp"
         android:textColor="@color/mainColor"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Select the type of service for your appointment."
         android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline" />
 
@@ -78,7 +99,7 @@
             android:scaleType="fitXY"
             android:background="@null"
             android:padding="0dp"
-            android:src="@drawable/img_services_consultation"
+            android:src="@drawable/img_consultation"
             android:contentDescription="consultation service"
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
@@ -105,7 +126,7 @@
             android:scaleType="fitXY"
             android:background="@null"
             android:padding="0dp"
-            android:src="@drawable/img_service_extraction"
+            android:src="@drawable/img_extraction"
             android:contentDescription="consultation service"
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
@@ -132,7 +153,7 @@
             android:scaleType="fitXY"
             android:background="@null"
             android:padding="0dp"
-            android:src="@drawable/img_services_cleaning"
+            android:src="@drawable/img_cleaning"
             android:contentDescription="consultation service"
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
@@ -159,7 +180,7 @@
             android:scaleType="fitXY"
             android:background="@null"
             android:padding="0dp"
-            android:src="@drawable/img_services_filling"
+            android:src="@drawable/img_filling"
             android:contentDescription="consultation service"
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
@@ -186,25 +207,28 @@
             android:scaleType="fitXY"
             android:background="@null"
             android:padding="0dp"
-            android:src="@drawable/img_services_braces"
+            android:src="@drawable/img_braces"
             android:contentDescription="consultation service"
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/progressTopGuideline">
+        app:layout_constraintTop_toBottomOf="@id/service_braces">
 
         <LinearLayout
             android:id="@+id/step1"
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/drawable_progress_shape"
+            android:backgroundTint="@color/mainColor"
             android:layout_marginRight="3dp"/>
 
         <LinearLayout
@@ -212,7 +236,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"
             android:layout_marginRight="3dp"/>
 
@@ -221,7 +245,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"/>
     </LinearLayout>
 
@@ -229,13 +253,15 @@
         android:id="@+id/btnNext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Next"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -249,14 +275,14 @@
         app:strokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/btnTopGuideline"/>
+        app:layout_constraintTop_toBottomOf="@id/progress"/>
 
     <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/startGuideline"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.044" />
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.044" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/endGuideline"
@@ -270,56 +296,56 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.070" />
+        app:layout_constraintGuide_percent="0.030" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str1TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.13" />
+        app:layout_constraintGuide_percent="0.10" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.183" />
+        app:layout_constraintGuide_percent="0.145" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Img1TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.228" />
+        app:layout_constraintGuide_percent=".19" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Img2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3478" />
+        app:layout_constraintGuide_percent="0.323" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Img3TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4676" />
+        app:layout_constraintGuide_percent="0.453" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Img4TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5874" />
+        app:layout_constraintGuide_percent="0.583" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Img5TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7072" />
+        app:layout_constraintGuide_percent="0.714" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/progressTopGuideline"
@@ -333,7 +359,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.877" />
-
+            app:layout_constraintGuide_percent="0.88" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/bottomNavBar"
+        layout="@layout/navigationbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>

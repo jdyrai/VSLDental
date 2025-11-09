@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/img_booking_confirmed"
         android:contentDescription="app logo"
         android:adjustViewBounds="true"
         app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="3:1"
         app:layout_constraintTop_toBottomOf="@id/topGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline" />
@@ -23,38 +23,48 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:autoSizeMinTextSize="30sp"
+        android:autoSizeMaxTextSize="37sp"
         android:text="Booking Confirmed"
-        android:textSize="28sp"
+        android:textSize="35sp"
         android:textColor="@color/black"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
 
     <!-- 🔹 Description -->
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="The doctor has been notified."
-        android:textSize="16sp"
-        android:textColor="@color/subColor"
+        android:autoSizeMaxTextSize="22sp"
+        android:autoSizeMinTextSize="18sp"
         android:fontFamily="@font/inter_24pt_regular"
-        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        android:gravity="center"
+        android:letterSpacing="0.0001"
+        android:text="The doctor has been notified."
+        android:textColor="@color/subColor"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="OK"
         android:textSize="15sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.001"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
         android:stateListAnimator="@null"
@@ -109,14 +119,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.605" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.699" />
+        app:layout_constraintGuide_percent="0.668" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btnTopGuideline"

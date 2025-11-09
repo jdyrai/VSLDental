@@ -11,9 +11,22 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#FFE0E0E0</color>
     <color name="mainColor">#FFEE9356 </color>
+    <color name="lightMainColor">#FFF4B385</color>
     <color name="mainDarkerColor">#FFCC6A2D</color>
     <color name="subColor">#FF7D7A7A</color>
     <color name="hintColor">#FFA8A8A8</color>
     <color name="borderColor">#FFCCCCCC</color>
+    <color name="errorColor">#FFE53935</color>
     <color name="dayColor">#FFF3FF0F</color>
+    <color name="serviceColor1">#FF289CE9</color>
+    <color name="serviceColor2">#FF28E975</color>
+    <color name="serviceColor3">#FF7528E9</color>
+    <color name="serviceColor4">#FFE97528</color>
+    <color name="serviceColor5">#FFE9D628</color>
+    <color name="serviceColorBg1">#80A8DFF4</color>
+    <color name="serviceColorBg2">#99A8F5C9</color>
+    <color name="serviceColorBg3">#CCCAA4F7</color>
+    <color name="serviceColorBg4">#99F8CBA3</color>
+    <color name="serviceColorBg5">#99F9EFA8</color>
+
 </resources>

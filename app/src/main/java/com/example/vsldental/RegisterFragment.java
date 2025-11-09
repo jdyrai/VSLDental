@@ -1,17 +1,22 @@
 package com.example.vsldental;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.text.InputType;
+import android.util.Patterns;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -26,9 +31,8 @@ import com.google.android.material.button.MaterialButton;
 
 public class RegisterFragment extends Fragment {
 
-
-    private EditText inputFullName, inputEmail, inputPass;
-    private TextView labelFullName, labelEmail, labelPass;
+    private EditText inputFirstName, inputLastName, inputEmail, inputPass;
+    private TextView labelFirstName, labelLastName, labelEmail, labelPass, tvFNameGuide, tvLNameGuide, tvEmailError, tvPassError;
     private boolean isPasswordVisible = false;
 
     public RegisterFragment() {
@@ -40,152 +44,70 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_register, container, false);
 
-        inputFullName = view.findViewById(R.id.inputFullName);
-        labelFullName = view.findViewById(R.id.labelFullName);
-        LinearLayout layoutFullName = view.findViewById(R.id.layoutFullName);
-
-        inputFullName.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutFullName.getBackground().mutate();
-            if (hasFocus) {
-                int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
-                drawable.setStroke(2, focusedColor);
-                inputFullName.setHint("");
-                inputFullName.animate()
-                        .translationY(-4f);
-                labelFullName.animate()
-                        .translationY(-5f)
-                        .alpha(1f)
-                        .setDuration(150)
-                        .start();
-            } else if (inputFullName.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelFullName.animate()
-                        .translationY(15f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputFullName.animate()
-                        .translationY(-21f);
-                inputFullName.setHint("Enter email address");
-            } else if (!hasFocus && !inputFullName.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelFullName.animate()
-                        .translationY(15f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputFullName.animate()
-                        .translationY(-21f);
-            }
-        });
-
-        inputEmail = view.findViewById(R.id.inputEmail);
-        labelEmail = view.findViewById(R.id.labelEmail);
+        // Layout Binding
+        LinearLayout layoutFirstName = view.findViewById(R.id.layoutFirstName);
+        LinearLayout layoutLastName = view.findViewById(R.id.layoutLastName);
         LinearLayout layoutEmail = view.findViewById(R.id.layoutEmail);
-
-        inputEmail.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutEmail.getBackground().mutate();
-            if (hasFocus) {
-                int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
-                drawable.setStroke(2, focusedColor);
-                inputEmail.setHint("");
-                inputEmail.animate()
-                        .translationY(-4f);
-                labelEmail.animate()
-                        .translationY(-5f)
-                        .alpha(1f)
-                        .setDuration(150)
-                        .start();
-            } else if (inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelEmail.animate()
-                        .translationY(15f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputEmail.animate()
-                        .translationY(-21f);
-                inputEmail.setHint("Enter email address");
-            } else if (!hasFocus && !inputEmail.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelEmail.animate()
-                        .translationY(15f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputEmail.animate()
-                        .translationY(-21f);
-            }
-        });
-
-        inputPass = view.findViewById(R.id.inputPass);
-        labelPass = view.findViewById(R.id.labelPass);
         LinearLayout layoutPass = view.findViewById(R.id.layoutPass);
+        // Button Binding
+        MaterialButton btnContinue = view.findViewById(R.id.btnContinue);
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        // EditText Binding
+        inputFirstName = view.findViewById(R.id.inputFirstName);
+        inputLastName = view.findViewById(R.id.inputLastName);
+        inputEmail = view.findViewById(R.id.inputEmail);
+        inputPass = view.findViewById(R.id.inputPass);
+        // TextView Binding
+        labelFirstName = view.findViewById(R.id.labelFirstName);
+        labelLastName = view.findViewById(R.id.labelLastName);
+        labelEmail = view.findViewById(R.id.labelEmail);
+        labelPass = view.findViewById(R.id.labelPass);
+        tvFNameGuide = view.findViewById(R.id.tvFNameGuide);
+        tvLNameGuide = view.findViewById(R.id.tvLNameGuide);
+        tvEmailError = view.findViewById(R.id.tvEmailError);
+        tvPassError = view.findViewById(R.id.tvPassError);
 
-        inputPass.setOnFocusChangeListener((v, hasFocus) -> {
-            GradientDrawable drawable = (GradientDrawable) layoutPass.getBackground().mutate();
-            if (hasFocus) {
-                int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
-                drawable.setStroke(2, focusedColor);
-                inputPass.setHint("");
-                inputPass.animate()
-                        .translationY(-4f);
-                labelPass.animate()
-                        .translationY(-2f)
-                        .alpha(1f)
-                        .setDuration(150)
-                        .start();
-            } else if (inputPass.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelPass.animate()
-                        .translationY(16f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputPass.animate()
-                        .translationY(-21f);
-                inputPass.setHint("Enter Password");
-            } else if (!hasFocus && !inputPass.getText().toString().isEmpty()) {
-                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
-                drawable.setStroke(1, defaultColor);
-                labelPass.animate()
-                        .translationY(16f)
-                        .alpha(0f)
-                        .setDuration(150)
-                        .start();
-                inputPass.animate()
-                        .translationY(-21f);
+        // Input Fields Anim
+        setupFocusAnimation(inputFirstName, labelFirstName, layoutFirstName, "Enter your first name");
+        setupFocusAnimation(inputLastName, labelLastName, layoutLastName, "Enter your last name");
+        setupFocusAnimation(inputEmail, labelEmail, layoutEmail, "Enter your email address");
+        setupFocusAnimation(inputPass, labelPass, layoutPass, "Create your password");
+
+        inputPass.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_END = 2;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    Drawable[] drawables = inputPass.getCompoundDrawables();
+                    if (drawables[DRAWABLE_END] != null) {
+                        float touchX = event.getRawX();
+                        float iconStartX = inputPass.getRight() - drawables[DRAWABLE_END].getBounds().width();
+                        if (touchX >= iconStartX) {
+                            togglePasswordVisibility();
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }
         });
 
-        inputPass.setOnTouchListener((v, event) -> {
-            final int DRAWABLE_END = 2;
-            if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                if (event.getRawX() >= (inputPass.getRight() - inputPass.getCompoundDrawables()[DRAWABLE_END].getBounds().width())) {
-                    togglePasswordVisibility();
+        inputPass.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, android.view.KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    inputPass.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) requireContext()
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (imm != null) {
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    }
                     return true;
                 }
+                return false;
             }
-            return false;
         });
 
-        inputPass.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                inputPass.clearFocus();
-
-                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                return true;
-            }
-            return false;
-        });
-
-        ImageButton btnBack = view.findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,12 +116,17 @@ public class RegisterFragment extends Fragment {
             }
         });
 
-        MaterialButton btnContinue = view.findViewById(R.id.btnContinue);
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_continue);
+                //NavController navController = Navigation.findNavController(view);
+                //navController.navigate(R.id.action_continue);
+
+                errorMessage(inputFirstName, tvFNameGuide);
+                errorMessage(inputLastName, tvLNameGuide);
+                errorMessage(inputEmail, tvEmailError);
+                errorMessage(inputPass, tvPassError);
+
 
                 new Thread(() -> {
                     try {
@@ -207,7 +134,7 @@ public class RegisterFragment extends Fragment {
                         String postData = "email=" + inputEmail.getText().toString() +
                                 "&password=" + inputPass.getText().toString() +
                                 "&role=Patient" +
-                                "&fullname=" + inputFullName.getText().toString();
+                                "&fullname=" + inputFirstName.getText().toString();
                         String result = ConnectToDatabase.sendPostRequest(urlStr, postData);
                         requireActivity().runOnUiThread(() ->
                                 Toast.makeText(requireContext(), "Server says: " + result, Toast.LENGTH_LONG).show()
@@ -227,16 +154,34 @@ public class RegisterFragment extends Fragment {
     }
 
     private void togglePasswordVisibility() {
+
+        Typeface customFont = ResourcesCompat.getFont(requireContext(), R.font.inter_24pt_regular);
         isPasswordVisible = !isPasswordVisible;
 
+        int start = inputPass.getSelectionStart();
+        int end = inputPass.getSelectionEnd();
+
         if (isPasswordVisible) {
-            inputPass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-            setPasswordIcon(R.drawable.ic_visibility_on, R.color.hintColor);
+            inputPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            inputPass.post(new Runnable() {
+                @Override
+                public void run() {
+                    setPasswordIcon(R.drawable.ic_visibility_off, R.color.hintColor);
+                    inputPass.setTypeface(customFont);
+                }
+            });
         } else {
             inputPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            setPasswordIcon(R.drawable.ic_visibility_off, R.color.hintColor);
+            inputPass.post(new Runnable() {
+                @Override
+                public void run() {
+                    setPasswordIcon(R.drawable.ic_visibility_on, R.color.hintColor);
+                    inputPass.setTypeface(customFont);
+                }
+            });
         }
-        inputPass.setSelection(inputPass.getText().length());
+
+        inputPass.setSelection(start, end);
     }
 
     private void setPasswordIcon(int drawableId, int colorId) {
@@ -245,5 +190,89 @@ public class RegisterFragment extends Fragment {
             icon.setTint(ContextCompat.getColor(requireContext(), colorId));
         }
         inputPass.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
+    }
+
+    private void setupFocusAnimation(EditText editText, TextView label, LinearLayout layout, String hintText) {
+        editText.setOnFocusChangeListener((v, hasFocus) -> {
+            GradientDrawable drawable = (GradientDrawable) layout.getBackground().mutate();
+            if (hasFocus) {
+                int focusedColor = ContextCompat.getColor(requireContext(), R.color.mainColor);
+                drawable.setStroke(2, focusedColor);
+                editText.setHint("");
+                editText.animate().translationY(-4f);
+                label.animate().translationY(-2f).alpha(1f).setDuration(150).start();
+            } else if (editText.getText().toString().isEmpty()) {
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
+                drawable.setStroke(1, defaultColor);
+                label.animate().translationY(16f).alpha(0f).setDuration(150).start();
+                editText.animate().translationY(-9f);
+                editText.setHint(hintText);
+            } else if (!hasFocus && !editText.getText().toString().isEmpty()) {
+                int defaultColor = ContextCompat.getColor(requireContext(), R.color.borderColor);
+                drawable.setStroke(1, defaultColor);
+                label.animate().translationY(16f).alpha(0f).setDuration(150).start();
+                editText.animate().translationY(-9f);
+            }
+        });
+    }
+
+//    private void adjustForgotPos() {
+//        boolean hasError = !(labelNameGuide.getVisibility() == View.GONE && passError.getVisibility() == View.GONE);
+//        float ifHasError = hasError ? 45f : 0f;
+//        goToForgot.animate().translationY(ifHasError).setDuration(150).start();
+//    }
+
+//    private void adjustContinuePos() {
+//        boolean hasError = !(tvFNameGuide.getVisibility() == View.GONE && tvLNameGuide.getVisibility() == View.GONE);
+//        float ifHasError = hasError ? 45f : 0f;
+//        layout.animate().translationY(ifHasError).setDuration(150).start();
+//    }
+
+    private void errorMessage(EditText inputText, TextView errorText) {
+        String inputValue = inputText.getText().toString().trim();
+
+        if (inputText == inputFirstName) {
+            if (inputValue.isEmpty()) {
+                errorText.setText("First name is required.");
+                errorText.setVisibility(View.VISIBLE);
+            } else {
+                errorText.setVisibility(View.GONE);
+            }
+        }
+
+        if (inputText == inputLastName) {
+            if (inputValue.isEmpty()) {
+                errorText.setText("Last name is required.");
+                errorText.setVisibility(View.VISIBLE);
+            } else {
+                errorText.setVisibility(View.GONE);
+            }
+        }
+
+        if (inputText == inputEmail) {
+            if (inputValue.isEmpty()) {
+                errorText.setText("Email is required.");
+                errorText.setVisibility(View.VISIBLE);
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(inputValue).matches()) {
+                errorText.setText("Please enter a valid email address.");
+                errorText.setVisibility(View.VISIBLE);
+            } else {
+                errorText.setVisibility(View.GONE);
+            }
+        }
+
+        else if (inputText == inputPass) {
+            if (inputValue.isEmpty()) {
+                errorText.setText("Password is required.");
+                errorText.setVisibility(View.VISIBLE);
+            } else if (inputValue.length() < 6) {
+                errorText.setText("Password must be at least 6 characters.");
+                errorText.setVisibility(View.VISIBLE);
+            } else {
+                errorText.setVisibility(View.GONE);
+            }
+        }
+
+        //adjustForgotPos();
     }
 }

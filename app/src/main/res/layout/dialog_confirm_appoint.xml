@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@drawable/drawable_input_layout">
     <!--android:background="@drawable/bg_dialog_rounded" -->
 
 
@@ -15,23 +16,28 @@
         android:id="@+id/dialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="27sp"
         android:text="Confirm Appointment"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/inter_24pt_medium"
+        android:textColor="@color/mainColor"
+        android:textSize="25sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.0001"
         android:gravity="center"
-        android:paddingBottom="10dp"/>
+        android:paddingBottom="5dp"/>
 
     <!-- Message -->
     <TextView
         android:id="@+id/dialogMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Are you sure you want to confirm this \nappointment?"
         android:textColor="@color/subColor"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="0.0001"
         android:gravity="center"
         android:paddingBottom="20dp"/>
 
@@ -39,13 +45,15 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Log in"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -62,13 +70,15 @@
         android:id="@+id/btnGoToPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Continue with Phone Number"
         android:textSize="14sp"
         android:textColor="@color/mainColor"
         android:fontFamily="@font/inter_24pt_medium"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_border"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_border"
         app:backgroundTint="@null"
         app:rippleColor="@color/mainColor"
         android:stateListAnimator="@null"

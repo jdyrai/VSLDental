@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GalleryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_aboutus_2"
+            android:alpha="0.9"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="H, 15:12"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/drawable_circle"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:contentDescription="go back"
+            android:src="@drawable/ic_arrow_left"
+            android:scaleType="centerInside"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/topGuideline"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/progressTopGuideline">
+
+            <LinearLayout
+                android:id="@+id/step1"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:orientation="vertical"
+                android:background="@drawable/drawable_progress_shape"
+                android:backgroundTint="@color/gray"
+                android:layout_marginRight="3dp"/>
+
+            <LinearLayout
+                android:id="@+id/step2"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:orientation="vertical"
+                android:background="@drawable/drawable_progress_shape"
+                android:backgroundTint="@color/mainColor"
+                android:layout_marginRight="3dp"/>
+
+            <LinearLayout
+                android:id="@+id/step3"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:orientation="vertical"
+                android:background="@drawable/drawable_progress_shape"
+                android:backgroundTint="@color/gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:elevation="6dp"
+            android:translationZ="6dp"
+            android:clipToOutline="true"
+            android:background="@drawable/drawable_layout_services"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutTopGuideline">
+
+            <TextView
+                android:id="@+id/name_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our Gallery"
+                android:textSize="19sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:letterSpacing="0.01"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:id="@+id/TabsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintTop_toBottomOf="@id/layoutTopGuideline"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:id="@+id/tabAbout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="About Us"
+                    android:textColor="@color/subColor"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/inter_24pt_semibold"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tabGallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:gravity="center"
+                    android:text="Gallery"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/inter_24pt_semibold"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tabReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:gravity="center"
+                    android:text="Review"
+                    android:textColor="@color/subColor"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/inter_24pt_semibold"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/imageGrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.0444" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9556" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.020" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/progressTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.26" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/layoutTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.286" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

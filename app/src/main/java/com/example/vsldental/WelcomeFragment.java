@@ -23,14 +23,11 @@ public class WelcomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
 
-        // Button References
+        // Button Binding
         MaterialButton btnLogin = view.findViewById(R.id.goToLogin);
         MaterialButton btnRegister = view.findViewById(R.id.goToRegister);
-
-        // Animation Reference
+        // Button Anim
         Animation buttonClick = AnimationUtils.loadAnimation(getContext(), R.anim.anim_button);
-
-        // Create reusable animated click listener
         View.OnClickListener animatedClickListener = v -> {
             v.startAnimation(buttonClick);
 
@@ -41,8 +38,6 @@ public class WelcomeFragment extends Fragment {
                 navController.navigate(R.id.action_welcomeFragment_to_RegisterFragment);
             }
         };
-
-        // Apply the listener to both buttons
         btnLogin.setOnClickListener(animatedClickListener);
         btnRegister.setOnClickListener(animatedClickListener);
 

@@ -24,10 +24,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeMaxTextSize="13sp"
         android:text="Appointment"
-        android:textSize="13sp"
+        android:textSize="11sp"
         android:textColor="@color/black"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/inter_24pt_medium"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintTop_toBottomOf="@id/topGuideline" />
@@ -36,10 +39,13 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="27sp"
         android:text="Review Details"
         android:textSize="25sp"
         android:textColor="@color/mainColor"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str1TopGuideline" />
 
@@ -47,10 +53,13 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Review your details below. Tap any details to \nedit or change."
         android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline" />
 
@@ -71,27 +80,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/backgroundColor">
 
-        <!-- Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:autoSizeMinTextSize="13sp"
+            android:autoSizeMaxTextSize="20sp"
             android:text="Booking Summary"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="0.0001"
             android:paddingBottom="10dp"/>
 
-        <!-- Horizontal divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/borderColor" />
 
-        <!-- Content section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,55 +108,68 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp">
 
-            <!-- Row: Customer Name -->
+            <!-- Customer Name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:paddingBottom="20dp">
+                android:paddingBottom="25dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Customer Name"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Juan Dela Cruz"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
+                    android:text="Jade Raissane I. Llamoso"
                     android:textSize="14sp"
-                    android:textColor="@color/subColor"/>
+                    android:textColor="@color/hintColor"
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
             </LinearLayout>
 
-            <!-- Row: Service -->
+            <!-- Service -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:paddingBottom="20dp">
+                android:paddingBottom="25dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Service"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Consultation"
                     android:textSize="14sp"
-                    android:textColor="@color/subColor"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:textColor="@color/hintColor"
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
             </LinearLayout>
 
             <!-- Row: Appointment Date -->
@@ -156,24 +178,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:paddingBottom="20dp">
+                android:paddingBottom="25dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Appointment Date"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="08-21-2025"
                     android:textSize="14sp"
-                    android:textColor="@color/subColor"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:textColor="@color/hintColor"
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
             </LinearLayout>
 
             <!-- Row: Appointment Time -->
@@ -182,24 +210,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:paddingBottom="20dp">
+                android:paddingBottom="25dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Appointment Time"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="09:30 AM"
                     android:textSize="14sp"
-                    android:textColor="@color/subColor"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:textColor="@color/hintColor"
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
             </LinearLayout>
 
             <!-- Row: Estimated Cost -->
@@ -212,19 +246,26 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="Estimated Cost"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:fontFamily="@font/inter_24pt_regular"
+                    android:letterSpacing="0.0001"/>
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/inter_24pt_regular"
                     android:gravity="end"
+                    android:autoSizeMinTextSize="9sp"
+                    android:autoSizeMaxTextSize="16sp"
                     android:text="$1,500"
+                    android:textColor="@color/hintColor"
                     android:textSize="14sp"
-                    android:textColor="@color/subColor"
-                    android:fontFamily="@font/inter_24pt_regular"/>
+                    android:letterSpacing="0.0001"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -232,25 +273,31 @@
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#E0E0E0" />
+            android:background="@color/borderColor" />
 
         <!-- Note Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="12dp"
+            android:autoSizeMinTextSize="9sp"
+            android:autoSizeMaxTextSize="16sp"
             android:text="Note"
             android:textSize="14sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/inter_24pt_regular"/>
+            android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="0.0001"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="12dp"
+            android:paddingTop="0dp"
+            android:autoSizeMinTextSize="9sp"
+            android:autoSizeMaxTextSize="16sp"
             android:textSize="14sp"
-            android:textColor="@color/subColor"
-            android:fontFamily="@font/inter_24pt_regular"/>
+            android:textColor="@color/hintColor"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:letterSpacing="0.0001"/>
     </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -258,16 +305,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/progressTopGuideline">
+        app:layout_constraintTop_toBottomOf="@id/bookingSummaryCard">
 
         <LinearLayout
             android:id="@+id/step1"
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"
             android:layout_marginRight="3dp"/>
 
@@ -276,7 +324,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"
             android:layout_marginRight="3dp"/>
 
@@ -285,20 +333,23 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/gradient_background" />
+            android:background="@drawable/drawable_progress_shape"
+            android:backgroundTint="@color/mainColor"/>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Next"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -347,7 +398,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.183" />
+        app:layout_constraintGuide_percent="0.179" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutEmailTopGuideline"

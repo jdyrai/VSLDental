@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
     android:background="@color/backgroundColor"
     tools:context=".ForgotPhoneFragment">
 
@@ -20,7 +23,8 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/drawable_progress_shape"
+            android:backgroundTint="@color/mainColor"
             android:layout_marginRight="3dp"/>
 
         <LinearLayout
@@ -28,7 +32,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"
             android:layout_marginRight="3dp"/>
 
@@ -37,7 +41,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:orientation="vertical"
-            android:background="@drawable/progress_shape"
+            android:background="@drawable/drawable_progress_shape"
             android:backgroundTint="@color/gray"/>
     </LinearLayout>
 
@@ -49,6 +53,7 @@
         android:clickable="true"
         android:contentDescription="go back"
         android:src="@drawable/ic_arrow_left"
+        app:tint="@color/black"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/topGuideline"
         tools:ignore="TouchTargetSizeCheck" />
@@ -56,20 +61,25 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="25sp"
         android:text="Reset via Phone"
-        android:textSize="25sp"
+        android:textSize="23sp"
         android:textColor="@color/mainColor"
-        android:fontFamily="@font/inter_24pt_semibold"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str1TopGuideline"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Enter your phone number and we'll send you \na verification code."
         android:textSize="15sp"
         android:textColor="@color/subColor"
         android:fontFamily="@font/inter_24pt_regular"
+        android:letterSpacing="0.0001"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/str2TopGuideline"/>
 
@@ -78,8 +88,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/input_layout"
-        android:paddingVertical="12dp"
+        android:background="@drawable/drawable_input_layout"
+        android:paddingVertical="10dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -89,10 +99,13 @@
             android:id="@+id/labelPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizeMinTextSize="6sp"
+            android:autoSizeMaxTextSize="13sp"
             android:text="Phone Number"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textColor="@color/mainColor"
             android:fontFamily="@font/inter_24pt_semibold"
+            android:letterSpacing="0.0001"
             android:translationY="15dp"
             android:alpha="0" />
 
@@ -101,25 +114,31 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="3dp"
-            android:translationY="-7dp">
+            android:translationY="-9dp">
 
             <TextView
                 android:id="@+id/prefixPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoSizeMinTextSize="9sp"
+                android:autoSizeMaxTextSize="16sp"
                 android:text="+63"
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/inter_24pt_semibold" />
+                android:fontFamily="@font/inter_24pt_semibold"
+                android:letterSpacing="0.0001"/>
 
             <EditText
                 android:id="@+id/inputPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autoSizeMinTextSize="9sp"
+                android:autoSizeMaxTextSize="16sp"
                 android:layout_marginStart="5dp"
                 android:background="@android:color/transparent"
                 android:textSize="14sp"
                 android:textColor="@color/black"
+                android:letterSpacing="0.0001"
                 android:singleLine="true"
                 android:imeOptions="actionDone"
                 android:inputType="number" />
@@ -130,10 +149,13 @@
         android:id="@+id/goToEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="17sp"
         android:text="Reset via Email"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:fontFamily="@font/inter_24pt_medium"
+        android:letterSpacing="0.0001"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/viaEmailTopGuideline"/>
@@ -142,13 +164,15 @@
         android:id="@+id/btnSendCode"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="16sp"
         android:text="Send Code"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/inter_24pt_semibold"
         android:textAllCaps="false"
-        android:letterSpacing="0.01"
-        android:background="@drawable/gradient_background"
+        android:letterSpacing="0.0001"
+        android:background="@drawable/drawable_gradient_background"
         android:backgroundTint="@null"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
@@ -184,48 +208,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.075" />
+        app:layout_constraintGuide_percent="0.035" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.070" />
+        app:layout_constraintGuide_percent="0.030" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str1TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.13" />
+        app:layout_constraintGuide_percent="0.10" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/str2TopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.173" />
+        app:layout_constraintGuide_percent="0.145" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/layoutEmailTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.26" />
+        app:layout_constraintGuide_percent="0.22" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/viaEmailTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
+        app:layout_constraintGuide_percent="0.32" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btnTopGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.88" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
