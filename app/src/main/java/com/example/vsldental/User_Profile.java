@@ -1,12 +1,18 @@
 package com.example.vsldental;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +64,90 @@ public class User_Profile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user__profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_user__profile, container, false);
+
+
+        LinearLayout Logout = view.findViewById(R.id.LogOutContainer);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Logout", "LogoutClickedd");
+                new Thread(() -> {
+                    try {
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/Logout.php";
+                        String result = ConnectToDatabase.sendPostRequest(urlStr, ""); // no data needed
+
+                        requireActivity().runOnUiThread(() -> {
+                            Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show();
+
+                            // Clear session info in SharedPreferences
+                            requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+                                    .edit()
+                                    .remove("session_id")
+                                    .remove("role")
+                                    .remove("user_id")
+                                    .apply();
+
+                            // Redirect to login page
+                            NavController navController = Navigation.findNavController(view);
+                            navController.navigate(R.id.action_UserProfile_to_Login);
+                        });
+
+                    } catch (Exception e) {
+                        requireActivity().runOnUiThread(() -> {
+                                    Toast.makeText(requireContext(), "Logout failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Log.d("Logout", e.getMessage());
+                                }
+                        );
+                    }
+                }).start();
+            }
+        });
+
+        LinearLayout HomeBtn = view.findViewById(R.id.HomeContainer);
+        HomeBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_UserDashboard);
+        });
+
+        LinearLayout AboutusBtn = view.findViewById(R.id.AboutUsContainer);
+        AboutusBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_AboutUs);
+        });
+
+        LinearLayout AppointBtn = view.findViewById(R.id.AppointContainer);
+        AppointBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_UserAppoint);
+        });
+
+        LinearLayout RecordsBtn = view.findViewById(R.id.RecordsContainer);
+        RecordsBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_UserRecords);
+        });
+
+
+        LinearLayout ProfileManageBtn = view.findViewById(R.id.ProfilePicAndSettingsContainer);
+        ProfileManageBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_UserProfileManagement);
+        });
+
+        LinearLayout NotifBtn = view.findViewById(R.id.NotificationContainer);
+        NotifBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Records clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_UserProfile_to_Notification);
+        });
+
+
+        return view;
     }
 }

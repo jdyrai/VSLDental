@@ -116,6 +116,7 @@
                 android:weightSum="2"
                 android:paddingBottom="25dp">
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -127,6 +128,7 @@
                     android:fontFamily="@font/inter_24pt_regular"
                     android:letterSpacing="0.0001"/>
                 <TextView
+                    android:id="@+id/CustomerName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -159,6 +161,7 @@
                     android:fontFamily="@font/inter_24pt_regular"
                     android:letterSpacing="0.0001"/>
                 <TextView
+                    android:id="@+id/Service"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -191,6 +194,7 @@
                     android:fontFamily="@font/inter_24pt_regular"
                     android:letterSpacing="0.0001"/>
                 <TextView
+                    android:id="@+id/AppointmentDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -223,6 +227,7 @@
                     android:fontFamily="@font/inter_24pt_regular"
                     android:letterSpacing="0.0001"/>
                 <TextView
+                    android:id="@+id/AppointmentTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -237,36 +242,7 @@
             </LinearLayout>
 
             <!-- Row: Estimated Cost -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:autoSizeMinTextSize="9sp"
-                    android:autoSizeMaxTextSize="16sp"
-                    android:text="Estimated Cost"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_24pt_regular"
-                    android:letterSpacing="0.0001"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/inter_24pt_regular"
-                    android:gravity="end"
-                    android:autoSizeMinTextSize="9sp"
-                    android:autoSizeMaxTextSize="16sp"
-                    android:text="$1,500"
-                    android:textColor="@color/hintColor"
-                    android:textSize="14sp"
-                    android:letterSpacing="0.0001"/>
-            </LinearLayout>
         </LinearLayout>
 
         <!-- Divider between content and note -->

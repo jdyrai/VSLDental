@@ -139,11 +139,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
+                    android:fontFamily="@font/inter_24pt_semibold"
                     android:gravity="center"
                     android:text="Review"
                     android:textColor="@color/subColor"
                     android:textSize="15sp"
-                    android:fontFamily="@font/inter_24pt_semibold"
                     android:textStyle="bold" />
             </LinearLayout>
 

@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".InboxFragment">
 
-    <include layout="@layout/navigationbar"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"

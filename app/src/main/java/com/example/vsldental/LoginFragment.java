@@ -9,8 +9,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,8 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
+import org.json.JSONObject;
+
 public class    LoginFragment extends Fragment {
 
     public LoginFragment() {
@@ -31,6 +35,7 @@ public class    LoginFragment extends Fragment {
     }
 
     private EditText inputEmail, inputPass;
+
     private TextView labelEmail, labelPass;
     private boolean isPasswordVisible = false;
 
@@ -38,6 +43,34 @@ public class    LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+
+        //NavController navController = Navigation.findNavController(view);
+       // UserAccessValidator.validate(requireActivity());
+
+        String userId = SessionManager.getUserId(requireContext());
+        Log.d("LoginResponse", "Response from server: " + userId);
+        if(userId != null && !userId.isEmpty()){
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_Login_to_UserDashboard);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         inputEmail = view.findViewById(R.id.inputEmail);
         labelEmail = view.findViewById(R.id.labelEmail);
@@ -170,19 +203,60 @@ public class    LoginFragment extends Fragment {
             public void onClick(View view) {
                 new Thread(() -> {
                     try {
-                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/Login.php";
+                        String urlStr = "http://10.0.2.2/AndroidStudioVSLDentalClinic/LoginWoutHash.php";
                         String postData = "email=" + inputEmail.getText().toString() +
                                 "&password=" + inputPass.getText().toString();
+                        Log.d("LoginResponse", postData);
 
                         String result = ConnectToDatabase.sendPostRequest(urlStr, postData);
-                        requireActivity().runOnUiThread(() ->
-                                Toast.makeText(requireContext(), "Server says: " + result, Toast.LENGTH_LONG).show()
-                        );
+                        Log.d("LoginResponse", result);
+                        requireActivity().runOnUiThread(() -> {
+                            try {
+                                JSONObject json = new JSONObject(result);
+                                String status = json.getString("status");
+                                Log.d("LoginResponse", status);
+                                if (status.equals("success")) {
+                                    String role = json.getString("role");
+                                    String sessionId = json.getString("session_id");
+                                    String userID = json.getString("user_id");
+
+                                    SessionManager.saveSession(requireContext(), sessionId, role, userID);
+
+                                    Toast.makeText(requireContext(),
+                                            "Welcome " + role + "!", Toast.LENGTH_SHORT).show();
+
+                                    // Example redirect depending on role
+                                    NavController navController = Navigation.findNavController(view);
+                                    if (role.equalsIgnoreCase("Patient")) {
+                                        navController.navigate(R.id.action_Login_to_UserDashboard);
+                                        Log.d("LoginResponse", "Response from server: " + result);
+                                    } else if (role.equalsIgnoreCase("Staff")) {
+                                        Log.d("LoginResponse", "Response from server: " + result);
+                                        //  navController.navigate(R.id.action_login_to_staffDashboard);
+                                    } else if (role.equalsIgnoreCase("Patient")) {
+                                        Log.d("LoginResponse", "Response from server: " + result);
+                                        // navController.navigate(R.id.action_login_to_patientDashboard);
+                                    }
+
+                                } else {
+                                    Toast.makeText(requireContext(),
+                                            json.getString("message"), Toast.LENGTH_LONG).show();
+                                    Log.d("LoginResponse", "Failed: " + result);
+                                }
+
+                            } catch (Exception e) {
+                                Toast.makeText(requireContext(),
+                                        "Invalid response: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                Log.d("LoginResponse", "Response from server: " + e.getMessage());
+
+                            }
+                        });
                     } catch (Exception e) {
                         e.printStackTrace();
-                        requireActivity().runOnUiThread(() ->
-                                Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
-                        );
+                        requireActivity().runOnUiThread(() -> {
+                            Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.d("LoginResponse", "Response from server: " + e.getMessage());
+                        });
                     }
                 }).start();
             }
@@ -209,6 +283,18 @@ public class    LoginFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
         return view;
     }
 
@@ -232,4 +318,7 @@ public class    LoginFragment extends Fragment {
         }
         inputPass.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
     }
+
+
+
 }

@@ -103,6 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/consultationbg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -115,6 +116,7 @@
         app:layout_constraintTop_toBottomOf="@id/AppointmentTopGuideline">
 
         <TextView
+            android:id="@+id/upcomingappointmenttext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoSizeMinTextSize="6sp"
@@ -126,6 +128,7 @@
             android:letterSpacing="0.0001"/>
 
         <TextView
+            android:id="@+id/consultationtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoSizeMinTextSize="20sp"
@@ -143,6 +146,7 @@
             android:paddingHorizontal="0dp">
 
             <TextView
+                android:id="@+id/datetext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoSizeMinTextSize="7sp"
@@ -154,6 +158,7 @@
                 android:letterSpacing="0.0001"/>
 
             <TextView
+                android:id="@+id/timetext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoSizeMinTextSize="7sp"
@@ -201,6 +206,7 @@
 
         <!-- SERVICE 1 -->
         <LinearLayout
+            android:id="@+id/ConsultContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -241,6 +247,7 @@
 
         <!-- SERVICE 2 -->
         <LinearLayout
+            android:id="@+id/ExtractContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -278,6 +285,7 @@
 
         <!-- SERVICE 3 -->
         <LinearLayout
+            android:id="@+id/CleaningContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -315,6 +323,7 @@
 
         <!-- SERVICE 4 -->
         <LinearLayout
+            android:id="@+id/FillingContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -352,6 +361,7 @@
 
         <!-- SERVICE 5 -->
         <LinearLayout
+            android:id="@+id/BracesContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

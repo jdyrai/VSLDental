@@ -1,5 +1,6 @@
 package com.example.vsldental;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,12 +47,12 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String time = timeList.get(position);
         holder.timeText.setText(time);
+
         holder.timeText.setSelected(selectedPosition == position);
 
         holder.timeText.setOnClickListener(v -> {
             int currentPosition = holder.getBindingAdapterPosition();
             if (currentPosition == RecyclerView.NO_POSITION) return; // Safety check
-
             int previous = selectedPosition;
             selectedPosition = currentPosition;
             notifyItemChanged(previous);

@@ -3,12 +3,16 @@ package com.example.vsldental;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,23 @@ public class ReviewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_reviews, container, false);
+
+        TextView galleryBtn = view.findViewById(R.id.tabGallery);
+        galleryBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_review_to_gallery);
+        });
+
+        TextView aboutusBtn = view.findViewById(R.id.tabAbout);
+        aboutusBtn.setOnClickListener(v -> {
+            Log.d("BookingHistory", "Appointment clicked!");
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_review_to_aboutus);
+        });
+
+
+
 
         recyclerView  = view.findViewById(R.id.reviewRecyclerView);
 
